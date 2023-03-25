@@ -29,8 +29,8 @@ export class LoginComponent {
       };
 
       this.http.post(url, data).subscribe(response => {
-          this.router.navigate(['/login']);
-          this.invalido = false;
+          /*this.router.navigate(['/']);
+          this.invalido = false;*/
       }, error => {
         console.log('Erro: ', error);
         this.invalido = true;
