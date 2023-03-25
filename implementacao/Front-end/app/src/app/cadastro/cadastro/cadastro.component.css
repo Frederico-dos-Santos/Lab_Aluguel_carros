@@ -61,3 +61,15 @@ html, body {
     margin-top: 16px;
 }
 
+.voltar{
+    color: white;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+

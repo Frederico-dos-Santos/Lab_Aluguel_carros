@@ -21,6 +21,7 @@
 
 label{
     color: white;
+    font-size: 15px;
 }
 
 p{
@@ -31,4 +32,20 @@ p{
 .icon-display{
     transform: scale(20);
     color: white;
+}
+
+.voltar{
+    color: white;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.link-sucess{
+    font-size: 18px;
 }
