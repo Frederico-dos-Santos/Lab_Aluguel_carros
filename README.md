@@ -24,8 +24,8 @@ ___
 
 <h4>Cliente</h4>
 
-Me chamo Carmen, sou moradora de Varginha desde que nasci e tenho um apreço por carros, entretanto devido ao elevado preço de um carro, me contento os alugando na locadora `Vrum-Vrum` há mais de 10 anos, com o passar dos anos senti a necessidade na diminuição do tempo de um processo de aluguel, em que eu preciso me deslocar até a locadora, escolher um carro, e esperar durante horas até que a concessionária marque uma conversa entre eu e o agente, para que ele possa analisar meus documentos e fecharmos um acordo.
+Me chamo Carmen, sou moradora de Varginha desde que nasci e tenho um apreço por carros, entretanto devido ao elevado preço de um carro, me contento os alugando na locadora `Vrum-Vrum` há mais de 10 anos, com o passar dos anos senti a necessidade na diminuição do tempo de um processo de aluguel, em que eu preciso me deslocar até a locadora, escolher um carro, e esperar durante horas até que a concessionária marque uma conversa entre eu e o agente, para que ele possa analisar meus documentos e fecharmos um acordo. Esse problema poderia ser resolvido com uma plataforma web, em que eu logaria com os meus dados e pudesse escolher um carro, com meus dados sendo enviados de forma automática pelo sistema.
 
 <h4>Agente</h4>
 
-Me chamo Carlos, sou locador na concessionária `Vrum-Vrum` há 4 anos, e gostaria de uma forma de ver os dados do cliente e aprová-lo, ou não, dentro de um sistema pela web, otimizando assim o meu tempo e o do cliente, e por consequência aumentando o número de alugueis com o tempo.
+Me chamo Carlos, sou locador na concessionária `Vrum-Vrum` há 4 anos, e gostaria de uma forma de ver os dados do cliente e aprová-lo, ou não, logar com meus dados pessoais, dentro de um sistema pela web, otimizando assim o meu tempo e o do cliente, e por consequência aumentando o número de alugueis com o tempo.
