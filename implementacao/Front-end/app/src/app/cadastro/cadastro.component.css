@@ -46,7 +46,7 @@ html, body {
     margin-bottom: 30px;
 }
 
-.form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content input[type=date], .form-content select {
+.form-content input, .form-content select {
     width: 100%;
     padding: 9px 20px;
     text-align: left;

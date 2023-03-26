@@ -6,30 +6,21 @@
                 <div class="form-items">
                     <h3>Crie sua conta</h3>
                     <form class="requires-validation" novalidate>
-
-                        <div class="col-md-12">
-                           <input class="form-control" type="text" name="name" required placeholder="Digite seu nome completo" #nome>
-                        </div>
-
-                        <div class="col-md-12">
-                            <input class="form-control" type="email" name="email" placeholder="Digite seu email" required #email>
-                        </div>
-
-                       <div class="col-md-12">
-                        <input class="form-control" type="text" name="endereco" placeholder="Digite seu endereço completo" required #endereco>
-                       </div>
-
-                       <div class="col-md-12">
-                        <input class="form-control" type="date" name="date" placeholder="Digite sua data de nascimento" required #data>
-                     </div>
-
-                     
-                     <div class="col-md-12">
-                        <input class="form-control" type="password" name="password" placeholder="Digite uma senha válida" required #senha>
-                     </div>
-              
+                        <input class="form-control" type="text" name="name" required
+                            placeholder="Digite seu nome completo" required #nome>
+                        <input class="form-control" type="text" name="cpf" placeholder="Digite seu CPF" required #cpf>
+                        <input class="form-control" type="text" name="tg" placeholder="Digite seu RG" required #rg>
+                        <input class="form-control" type="text" name="endereco"
+                            placeholder="Digite seu endereço completo" required #endereco>
+                        <input class="form-control" type="text" name="profissao" placeholder="Digite sua profissão"
+                            required #profissao>
+                        <input class="form-control" type="password" name="password"
+                            placeholder="Digite uma senha válida" required #senha>
+                        <input class="form-control" type="email" name="email" placeholder="Digite seu email" required
+                            #email>
                         <div class="form-button mt-3">
-                            <button id="submit" type="submit" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+                            <button id="submit" type="submit" class="btn btn-primary"
+                                (click)="cadastrar()">Cadastrar</button>
                         </div>
                     </form>
                 </div>
