@@ -1,4 +1,4 @@
-import { CadastroComponent } from './cadastro/cadastro/cadastro.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
