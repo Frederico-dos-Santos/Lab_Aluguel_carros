@@ -29,8 +29,7 @@ export class LoginComponent {
       };
 
       this.http.post(url, data).subscribe(response => {
-          /*this.router.navigate(['/']);
-          this.invalido = false;*/
+          response == 'valid' ? this.router.navigate(['/']) : this.invalido = false;
       }, error => {
         console.log('Erro: ', error);
         this.invalido = true;
