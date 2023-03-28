@@ -46,4 +46,10 @@ public class ClienteService {
         return CLIENTE_REPOSITORY.findAll();
 
     }
+
+    public Cliente retornaClientePeloEmail(String email){
+
+        return CLIENTE_REPOSITORY.findClienteByEmail(email);
+
+    }
 }
