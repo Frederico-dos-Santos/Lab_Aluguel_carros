@@ -49,9 +49,10 @@ export class UserComponent {
       };
 
       this.http.put(url, body).subscribe(response => {
-        response == 'valid' ? alert("Usuário editado com sucesso") : alert("Não foi possível editar o usuário");
+         alert("Usuário editado com sucesso");
       }, error => {
         console.log('Erro: ', error);
+        alert("Não foi possível editar o usuário")
       });
     } catch (err: any) {
       console.error(err, "editar");
@@ -62,7 +63,7 @@ export class UserComponent {
   deletar() {
     const url = `${this.API_URL}/deletaCliente/1`;
       this.http.delete(url).subscribe(res => {
-        res == 'valid' ? this.router.navigate(['/']) : alert("Não foi possível apagar a conta")
+         this.router.navigate(['/'])
       })
   }
 

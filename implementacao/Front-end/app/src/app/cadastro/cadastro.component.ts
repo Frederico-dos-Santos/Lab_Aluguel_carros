@@ -46,7 +46,7 @@ export class CadastroComponent {
       };
 
       this.http.post(url, body).subscribe(response => {
-        response == 'valid' ? this.router.navigate(['/login']) : console.error('Erro cadastrar()');
+         this.router.navigate(['/login']);
       }, error => {
         console.log('Erro: ', error);
       });
