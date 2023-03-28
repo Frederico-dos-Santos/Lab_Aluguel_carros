@@ -29,7 +29,7 @@ export class LoginComponent {
       };
 
       this.http.post(url, data).subscribe(response => {
-        response == 'valid' ? this.router.navigate(['/user'], { queryParams: { usuario: email } }) : this.invalido = false;
+       this.router.navigate(['/user'], { queryParams: { usuario: email } });
       }, error => {
         this.invalido = true;
         console.log('Erro: ', error);
