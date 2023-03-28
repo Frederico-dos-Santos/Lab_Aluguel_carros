@@ -4,3 +4,7 @@ p, h2{
 input {
   margin: 2px;
 }
+
+.img-thumbnail{
+  cursor:pointer;
+}
