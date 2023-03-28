@@ -5,27 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Table(name = "tb_rendimento")
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "tb_contrato")
-public class Contrato {
+public class Rendimento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private Boolean ativo;
-
-    @Column
     private Double valor;
 
-    @Column
-    private Boolean contratoCredito;
-
-    @OneToOne
-    private Veiculo veiculo;
+    @ManyToOne
+    private Cliente cliente;
 
 }

@@ -1,6 +1,6 @@
 package com.app.model;
 
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,13 +9,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Entity
 @Table(name = "tb_usuario")
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
     private String name;
 
+    @Column
     private String password;
 
+    @Column
     private String email;
 
 }
