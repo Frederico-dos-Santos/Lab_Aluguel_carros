@@ -4,6 +4,8 @@ import com.app.model.Cliente;
 import com.app.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteService {
 
@@ -39,4 +41,9 @@ public class ClienteService {
 
     }
 
+    public List<Cliente> retornaTodosClientes(){
+
+        return CLIENTE_REPOSITORY.findAll();
+
+    }
 }
