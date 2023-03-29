@@ -22,18 +22,18 @@ export class LoginComponent {
       const email = this.email.nativeElement.value;
       const senha = this.senha.nativeElement.value;
 
-      const url = 'http://localhost:8080/logar';
-      const data = {
-        email: email,
-        senha: senha
-      };
+      this.http.get(`http://localhost:8080/api/cliente/retornaClientePeloEmail/${email}`).subscribe(response => {
+        const user = response as any
+        if(user?.password === senha ){
+          localStorage.setItem('user', JSON.stringify(user));
+          this.router.navigate(['/user'])
+        }
+       }, error => {
+         this.invalido = true;
+         console.log('Erro: ', error);
+       });
 
-      this.http.post(url, data).subscribe(response => {
-       this.router.navigate(['/user'], { queryParams: { usuario: email } });
-      }, error => {
-        this.invalido = true;
-        console.log('Erro: ', error);
-      });
+
     } catch (err: any) {
       console.error(err, "logar");
     }

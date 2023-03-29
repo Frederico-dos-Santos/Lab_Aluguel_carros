@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import axios from 'axios';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -23,7 +25,7 @@ export class CadastroComponent {
 
 
   cadastrar() {
-    try {
+
       const nome = this.nome.nativeElement.value;
       const email = this.email.nativeElement.value;
       const cpf = this.cpf.nativeElement.value;
@@ -35,24 +37,24 @@ export class CadastroComponent {
 
       const url = 'http://localhost:8080/api/cliente/insereCliente';
       const body = {
-        nome: nome,
-        password: senha,
-        email: email,
-        cpf: cpf,
-        rg: rg,
-        endereco: endereco,
-        profissao: profissao,
-        entidadeEmpregadora: entidadeEmpregadora,
+        "name": nome,
+        "password": senha,
+        "email": email,
+        "cpf": cpf,
+        "rg": rg,
+        "endereco": endereco,
+        "profissao": profissao,
+        "entidadeEmpregadora": entidadeEmpregadora,
       };
+      console.log(body)
+
 
       this.http.post(url, body).subscribe(response => {
+        console.log('res', response)
          this.router.navigate(['/login']);
       }, error => {
         console.log('Erro: ', error);
       });
-    } catch (err: any) {
-      console.error(err, "cadastrar");
-    }
 
   }
 

@@ -27,28 +27,32 @@ export class UserComponent {
 
   editar() {
     try {
-      const nome = this.nome.nativeElement.value;
-      const email = this.email.nativeElement.value;
-      const cpf = this.cpf.nativeElement.value;
-      const rg = this.rg.nativeElement.value;
-      const endereco = this.endereco.nativeElement.value;
-      const senha = this.senha.nativeElement.value;
-      const profissao = this.senha.nativeElement.value;
-      const entidadeEmpregadora = this.entidadeEmpregadora.nativeElement.value;
+      let nome = this.nome.nativeElement.value;
+      let email = this.email.nativeElement.value;
+      let cpf = this.cpf.nativeElement.value;
+      let rg = this.rg.nativeElement.value;
+      let endereco = this.endereco.nativeElement.value;
+      let senha = this.senha.nativeElement.value;
+      let profissao = this.senha.nativeElement.value;
+      let entidadeEmpregadora = this.entidadeEmpregadora.nativeElement.value;
 
-      const url = `${this.API_URL}/insereCliente`;
+      const user = localStorage.getItem('user') as any;
+
+      const url = `${this.API_URL}/alteraCliente`;
+
+
       const body = {
-        nome: nome,
+        nome: nome ,
         password: senha,
         email: email,
         cpf: cpf,
         rg: rg,
         endereco: endereco,
         profissao: profissao,
-        entidadeEmpregadora: entidadeEmpregadora,
+        entidadeEmpregadora: entidadeEmpregadora
       };
-
-      this.http.put(url, body).subscribe(response => {
+      console.log(body)
+      this.http.put(url,body).subscribe(response => {
          alert("Usuário editado com sucesso");
       }, error => {
         console.log('Erro: ', error);
@@ -61,7 +65,8 @@ export class UserComponent {
   }
 
   deletar() {
-    const url = `${this.API_URL}/deletaCliente/1`;
+    const user = localStorage.getItem('user') as any;
+    const url = `${this.API_URL}/deletaCliente/${user?.id}`;
       this.http.delete(url).subscribe(res => {
          this.router.navigate(['/'])
       })
