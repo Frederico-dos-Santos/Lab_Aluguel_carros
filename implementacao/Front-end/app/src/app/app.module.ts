@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
+import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-funcionario.component';
+import { FuncionarioComponent } from './funcionario/funcionario.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { UserComponent } from './user/user.component';
     CadastroComponent,
     HomeComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    CadastroFuncionarioComponent,
+    FuncionarioComponent
   ],
   imports: [
     BrowserModule,

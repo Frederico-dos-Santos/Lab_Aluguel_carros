@@ -1,0 +1,23 @@
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <a class="voltar" href="/home"><mat-icon>arrow_back_ios</mat-icon>Voltar</a>
+        <div class="form-items">
+          <h3>Crie sua conta de Funcionário</h3>
+          <form class="requires-validation">
+            <input class="form-control" type="text" name="name" required placeholder="Digite seu nome completo" required
+              #nome>
+              <input class="form-control" type="email" name="email" placeholder="Digite seu email" required #email>
+            <input class="form-control" type="password" name="password" placeholder="Digite uma senha válida" required
+              #senha>
+            <div class="form-button mt-3">
+            </div>
+          </form>
+          <button id="submit" type="" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

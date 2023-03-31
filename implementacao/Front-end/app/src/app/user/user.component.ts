@@ -25,6 +25,8 @@ export class UserComponent {
 
   }
 
+
+
   editar() {
     try {
       let nome = this.nome.nativeElement.value;
@@ -36,22 +38,23 @@ export class UserComponent {
       let profissao = this.senha.nativeElement.value;
       let entidadeEmpregadora = this.entidadeEmpregadora.nativeElement.value;
 
-      const user = localStorage.getItem('user') as any;
+      const user = JSON.parse(localStorage.getItem('user') as any);
 
       const url = `${this.API_URL}/alteraCliente`;
 
 
       const body = {
-        nome: nome ,
-        password: senha,
-        email: email,
-        cpf: cpf,
-        rg: rg,
-        endereco: endereco,
-        profissao: profissao,
-        entidadeEmpregadora: entidadeEmpregadora
+        id: user?.id,
+        nome: nome || user?.name ,
+        password: senha || user?.password,
+        email: email || user?.email,
+        cpf: cpf ||  user?.cpf,
+        rg: rg || user?.rg ,
+        endereco: endereco || user?.endereco,
+        profissao: profissao || user?.profissao,
+        entidadeEmpregadora: entidadeEmpregadora || user?.entidadeEmpregadora
       };
-      console.log(body)
+      // console.log(body)
       this.http.put(url,body).subscribe(response => {
          alert("Usuário editado com sucesso");
       }, error => {
@@ -65,7 +68,7 @@ export class UserComponent {
   }
 
   deletar() {
-    const user = localStorage.getItem('user') as any;
+    const user = JSON.parse(localStorage.getItem('user') as any);
     const url = `${this.API_URL}/deletaCliente/${user?.id}`;
       this.http.delete(url).subscribe(res => {
          this.router.navigate(['/'])

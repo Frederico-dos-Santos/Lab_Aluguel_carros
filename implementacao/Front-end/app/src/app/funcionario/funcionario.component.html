@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 offset-3 m-2"><h1>Nossos Clientes</h1></div>
+  </div>
+  <div class="row">
+    <div *ngFor="let cliente of clientes">
+
+      <div class="col-3 m-4">
+        <ul class="list-group">
+          <li class="list-group-item">Nome : {{cliente?.name}}</li>
+          <li class="list-group-item">Rg : {{cliente?.rg}}</li>
+          <li class="list-group-item">email : {{cliente?.email}} </li>
+          <li class="list-group-item">profissão : {{cliente?.profissao}}</li>
+          <li class="list-group-item">Entidade empregadora : {{cliente?.entidadeEmpregadora}}</li>
+          <li class="list-group-item">Salário</li>
+          <li class="list-group-item">endereço : {{cliente?.endereco}}</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
