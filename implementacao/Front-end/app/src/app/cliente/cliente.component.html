@@ -1,0 +1,24 @@
+<ul class="list-group" *ngIf="carros.length > 0">
+    <li class="list-group-item" *ngFor="let carro of carros">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h5>Modelo: {{carro.modelo}}</h5>
+                <p>Marca: {{carro.marca}}</p>
+                <p>Ano: {{carro.ano | date:'yyyy'}}</p>
+                <p>Placa: {{carro.placa}}</p>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="number" name="preco" placeholder="Digite um preço" required
+                        #preco>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"
+                        (click)="contratar(carro)" [disabled]="contratando">
+                        {{ contratando ? 'Em análise' : 'Contratar' }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="not-found" *ngIf="carros.length == 0">
+    <p>Não há carros disponíveis</p>
+</div>

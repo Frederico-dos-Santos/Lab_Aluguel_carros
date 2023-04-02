@@ -1,0 +1,33 @@
+.list-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-group-item {
+    flex-basis: calc(50% - 10px);
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.list-group-item h5 {
+    margin-top: 0;
+}
+
+.list-group-item p {
+    margin: 5px 0;
+}
+
+.list-group-item button {
+    float: right;
+}
+
+.not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 24px;
+    color: #fff;
+}

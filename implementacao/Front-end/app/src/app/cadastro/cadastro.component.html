@@ -6,7 +6,7 @@
         <div class="form-items">
           <h3>Crie sua conta</h3>
           <form class="requires-validation">
-            <input class="form-control" type="text" name="name" required placeholder="Digite seu nome completo" required
+            <input class="form-control" type="text" name="name" placeholder="Digite seu nome completo" required
               #nome>
             <input class="form-control" type="text" name="cpf" placeholder="Digite seu CPF" required #cpf>
             <input class="form-control" type="text" name="tg" placeholder="Digite seu RG" required #rg>
@@ -14,16 +14,26 @@
               #endereco>
             <input class="form-control" type="text" name="profissao" placeholder="Digite sua profissão" required
               #profissao>
-            <input class="form-control" type="text" name="entidadeEmpregadora"
-              placeholder="Digite a entidade empregadora" required #entidadeEmpregadora>
+              <input class="form-control" type="email" name="email" placeholder="Digite seu email" required #email>
             <input class="form-control" type="password" name="password" placeholder="Digite uma senha válida" required
               #senha>
-            <input class="form-control" type="email" name="email" placeholder="Digite seu email" required #email>
-            <div class="form-button mt-3">
-
-            </div>
+              <input class="form-control" type="text" name="entidadeEmpregadora1"
+              placeholder="Digite a entidade empregadora" required #entidadeEmpregadora1>
+              <input class="form-control" type="text" name="salario1"
+              placeholder="Digite o seu salário" required #salario1>
+              <input class="form-control" type="text" name="entidadeEmpregadora2"
+              placeholder="Se houver, digite outra entidade empregadora" #entidadeEmpregadora2>
+              <input class="form-control" type="text" name="salario2"
+              placeholder="Se houver, digite outro salário" #salario2>
+              <input class="form-control" type="text" name="entidadeEmpregadora3"
+              placeholder="Se houver, digite outra entidade empregadora" #entidadeEmpregadora3>
+              <input class="form-control" type="text" name="salario3"
+              placeholder="Se houver, digite outro salário" #salario3>
+        
           </form>
-          <button id="submit" type="" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+          <div class="form-button mt-3">
+            <button id="submit" type="" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+          </div>
         </div>
       </div>
     </div>

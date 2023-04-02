@@ -1,3 +1,4 @@
+import { ClienteComponent } from './cliente/cliente.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-funcionario.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'criarFuncionario', component: CadastroFuncionarioComponent},
   {path: 'user', component: UserComponent},
   {path: 'funcionario', component: FuncionarioComponent},
+  {path: 'veiculos', component: ClienteComponent},
   {path: '', redirectTo: 'home', pathMatch:'full'}
 ];
 

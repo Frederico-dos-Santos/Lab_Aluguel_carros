@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
 import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-funcionario.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
+import { ClienteComponent } from './cliente/cliente.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FuncionarioComponent } from './funcionario/funcionario.component';
     LoginComponent,
     UserComponent,
     CadastroFuncionarioComponent,
-    FuncionarioComponent
+    FuncionarioComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,

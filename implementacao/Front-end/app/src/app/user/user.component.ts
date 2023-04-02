@@ -1,13 +1,13 @@
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
 
   @ViewChild("nome") nome: any;
   @ViewChild("email") email: any;
@@ -21,9 +21,17 @@ export class UserComponent {
   API_URL = "http://localhost:8080/api/cliente"
 
 
-  constructor(private http: HttpClient, private router: Router){
+  constructor(private http: HttpClient, private router: Router) {
 
   }
+
+  contratos: any[] = [];
+
+  ngOnInit() {
+    this.carregaContrato();
+  }
+
+
 
 
 
@@ -45,18 +53,18 @@ export class UserComponent {
 
       const body = {
         id: user?.id,
-        nome: nome || user?.name ,
+        nome: nome || user?.name,
         password: senha || user?.password,
         email: email || user?.email,
-        cpf: cpf ||  user?.cpf,
-        rg: rg || user?.rg ,
+        cpf: cpf || user?.cpf,
+        rg: rg || user?.rg,
         endereco: endereco || user?.endereco,
         profissao: profissao || user?.profissao,
         entidadeEmpregadora: entidadeEmpregadora || user?.entidadeEmpregadora
       };
       // console.log(body)
-      this.http.put(url,body).subscribe(response => {
-         alert("Usuário editado com sucesso");
+      this.http.put(url, body).subscribe(response => {
+        alert("Usuário editado com sucesso");
       }, error => {
         console.log('Erro: ', error);
         alert("Não foi possível editar o usuário")
@@ -70,9 +78,24 @@ export class UserComponent {
   deletar() {
     const user = JSON.parse(localStorage.getItem('user') as any);
     const url = `${this.API_URL}/deletaCliente/${user?.id}`;
-      this.http.delete(url).subscribe(res => {
-         this.router.navigate(['/'])
-      })
+    this.http.delete(url).subscribe(res => {
+      this.router.navigate(['/'])
+    })
+  }
+
+
+  carregaContrato() {
+    try {
+      const url = 'http://localhost:8080/api/cliente/carregaContrato';
+
+      this.http.get(url).subscribe(response => {
+        this.contratos = response as any;
+      }, error => {
+        console.log('Erro: ', error);
+      });
+    } catch (err: any) {
+      console.error(err, "carregaContrato");
+    }
   }
 
 }

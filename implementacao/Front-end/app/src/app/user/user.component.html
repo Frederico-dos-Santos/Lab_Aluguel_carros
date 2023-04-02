@@ -44,11 +44,28 @@
         </div>
       </div>
     </div>
-    <div class="col-6 offset-2">
+
+    <div class="col-6 offset-2 contrato-info" *ngIf="contratos.length > 1">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let contrato of contratos">
+            <div class="d-flex justify-content-between">
+              <p>Seus contratos ativos:</p>
+              <h5>Modelo: {{contrato[4].veiculo.modelo}}</h5>
+              <p>Marca: {{contrato[4].veiculo.marca}}</p>
+              <p>Placa: {{contrato[4].veiculo.placa}}</p>
+              <p>Proprietário: {{contrato[4].veiculo.proprietario}}</p>
+              <p>Contrato de Crédito: {{contrato.contratoCredito}}</p>
+              <p>Valor: {{contrato.valor}}</p>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="col-6 offset-2" *ngIf="contratos.length == 0">
       <h2>Não contratos em andamentos</h2>
-      <p>Deseja realziar um contrato? </p>
+      <p>Deseja realizar um contrato? </p>
       <br>
-      <button class="btn btn-primary">Contratar</button>
+      <a type="button" class="btn btn-primary" href="/veiculos">Contratar</a>
     </div>
 
   </div>
