@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
+import { ContratoFuncComponent } from './contrato-func/contrato-func.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'user', component: UserComponent},
   {path: 'funcionario', component: FuncionarioComponent},
   {path: 'veiculos', component: ClienteComponent},
+  {path: 'contratosFunc', component: ContratoFuncComponent},
   {path: '', redirectTo: 'home', pathMatch:'full'}
 ];
 

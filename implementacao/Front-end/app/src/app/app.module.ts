@@ -14,6 +14,7 @@ import { UserComponent } from './user/user.component';
 import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-funcionario.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { ClienteComponent } from './cliente/cliente.component';
+import { ContratoFuncComponent } from './contrato-func/contrato-func.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ClienteComponent } from './cliente/cliente.component';
     UserComponent,
     CadastroFuncionarioComponent,
     FuncionarioComponent,
-    ClienteComponent
+    ClienteComponent,
+    ContratoFuncComponent
   ],
   imports: [
     BrowserModule,

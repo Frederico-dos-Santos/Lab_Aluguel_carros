@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 offset-3 m-2">
+      <h1>Contratos</h1>
+    </div>
+    <div class="col-3 offset-4"><a href="/funcionario" class="btn btn-primary m-2">voltar</a></div>
+  </div>
+  <div class="row">
+    <div class="col-4 m-2">
+    <form action="">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Contrato
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cliente: </li>
+          <li class="list-group-item"> Valor: <input type="number" placeholder="32"  #valor> </li>
+          <li class="list-group-item">Veiculo: <input type="text" placeholder="HB20" #veiculo></li>
+          <li class="list-group-item">Crédito: </li>
+          <li class="list-group-item">
+            <button class="btn btn-danger" (click)="recusar()">Recusar</button>
+            <button class="btn btn-primary m-2" (click)="editar()">Salvar</button>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </div>
+
+  </div>
+</div>
