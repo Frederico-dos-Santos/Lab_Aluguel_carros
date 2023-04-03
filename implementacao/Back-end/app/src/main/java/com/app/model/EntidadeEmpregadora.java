@@ -21,4 +21,9 @@ public class EntidadeEmpregadora {
 
     @ManyToOne
     private Cliente cliente;
+
+    public EntidadeEmpregadora(String nome, Cliente cliente) {
+        this.nome = nome;
+        this.cliente = cliente;
+    }
 }

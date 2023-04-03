@@ -1,9 +1,15 @@
 package com.app.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_veiculo")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Veiculo {
 
     @Id
@@ -27,5 +33,8 @@ public class Veiculo {
 
     @Column
     private Boolean alugado;
+
+    @Column
+    private String placa;
 
 }

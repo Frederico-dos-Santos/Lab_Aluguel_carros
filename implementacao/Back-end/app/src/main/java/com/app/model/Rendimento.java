@@ -22,4 +22,8 @@ public class Rendimento {
     @ManyToOne
     private Cliente cliente;
 
+    public Rendimento(Double valor, Cliente cliente) {
+        this.valor = valor;
+        this.cliente = cliente;
+    }
 }
