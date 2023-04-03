@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild, OnInit } from '@angular/core';
 
@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
   API_URL = "http://localhost:8080/api/cliente"
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
 
   }
 
@@ -86,9 +86,11 @@ export class UserComponent implements OnInit {
 
   carregaContrato() {
     try {
-      const url = 'http://localhost:8080/api/cliente/carregaContrato';
+      const url = `${this.API_URL}/carregaContrato`;
 
-      this.http.get(url).subscribe(response => {
+      const email = this.route.snapshot.params['email'];
+
+      this.http.get(url, email).subscribe(response => {
         this.contratos = response as any;
       }, error => {
         console.log('Erro: ', error);
