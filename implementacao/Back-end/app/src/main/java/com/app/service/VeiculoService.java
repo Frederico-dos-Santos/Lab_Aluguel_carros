@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import com.app.model.Veiculo;
 import com.app.repository.VeiculoRepository;
 
+import java.util.List;
+
 @Service
 public class VeiculoService {
     
@@ -27,4 +29,7 @@ public class VeiculoService {
         return VEICULO_REPOSITORY.getReferenceById(id);
     }
 
+    public List<Veiculo> retornaTodosVeiculos(){
+        return VEICULO_REPOSITORY.findAll();
+    }
 }

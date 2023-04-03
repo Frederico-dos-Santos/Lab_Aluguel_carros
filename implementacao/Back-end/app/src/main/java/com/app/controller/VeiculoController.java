@@ -2,13 +2,12 @@ package com.app.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.app.model.Veiculo;
 import com.app.service.VeiculoService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/veiculo/")
@@ -34,6 +33,16 @@ public class VeiculoController {
         VEICULO_SERVICE.insereVeiculo(veiculo);
 
         return ResponseEntity.ok(HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "retornaTodosVeiculos")
+    public ResponseEntity<?> retornaTodosVeiculos(){
+
+        List<Veiculo> veiculos = VEICULO_SERVICE.retornaTodosVeiculos();
+
+        return ResponseEntity.ok(veiculos);
+
 
     }
 
