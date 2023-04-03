@@ -28,4 +28,17 @@ public class Contrato {
     @OneToOne
     private Veiculo veiculo;
 
+    @ManyToOne
+    private Cliente cliente;
+
+    public Contrato(Boolean ativo, Double valor, Boolean contratoCredito, Veiculo veiculo, Cliente cliente) {
+        this.ativo = ativo;
+        this.valor = valor;
+        this.contratoCredito = contratoCredito;
+        this.veiculo = veiculo;
+        this.cliente = cliente;
+    }
+
+
+
 }

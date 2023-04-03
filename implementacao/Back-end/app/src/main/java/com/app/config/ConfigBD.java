@@ -55,7 +55,7 @@ public class ConfigBD {
     public void salvaCliente(String[] split){
 
         Cliente cliente = new Cliente(split[1], split[2], split[3],
-                split[4], split[5], split[6], split[7], split[8]);
+                split[4], split[5], split[6], split[7]);
 
         CLIENTE_SERVICE.insereCliente(cliente);
 
