@@ -121,4 +121,24 @@ public class ContratoController {
 
     }
 
+    /*@GetMapping(value = "deletaContratoPeloId/{id}",
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> deletaContratoPeloId(@PathVariable Long id){
+
+        if(id == null){
+            return ResponseEntity.badRequest().body(HttpStatus.NO_CONTENT);
+        }
+
+        Contrato contrato = CONTRATO_SERVICE.retornaContratoPeloId(id);
+
+        if(contrato == null){
+            return ResponseEntity.badRequest().body(HttpStatus.BAD_REQUEST);
+        }
+
+        CONTRATO_SERVICE.deletaContrato(contrato);
+
+        return ResponseEntity.ok(contrato);
+
+    }*/
+
 }
