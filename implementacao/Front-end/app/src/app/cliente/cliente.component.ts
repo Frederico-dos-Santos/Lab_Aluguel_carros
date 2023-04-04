@@ -23,9 +23,10 @@ export class ClienteComponent implements OnInit {
 
   visualizaCarros(): void {
     try {
-      const url = 'http://localhost:8080/api/cliente/buscaTodosCarros';
+      const url = 'http://localhost:8080/api/veiculo/retornaTodosVeiculos';
 
       this.http.get(url).subscribe(response => {
+        console.log(response);
         this.carros = response as any;
       }, error => {
         console.log('Erro: ', error);
@@ -43,7 +44,7 @@ export class ClienteComponent implements OnInit {
       const url = 'http://localhost:8080/api/cliente/contratarVeiculo';
 
       const body = {
-        "placa": carro.placa,
+        "placa": carro.idVeiculo,
         "preco": preco
       };
 

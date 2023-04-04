@@ -2,8 +2,9 @@
     <li class="list-group-item" *ngFor="let carro of carros">
         <div class="d-flex justify-content-between">
             <div>
-                <h5>Modelo: {{carro.modelo}}</h5>
+                <h2>{{carro.marca}} {{carro.modelo}}</h2>
                 <p>Marca: {{carro.marca}}</p>
+                <p>Modelo: {{carro.modelo}}</p>
                 <p>Ano: {{carro.ano | date:'yyyy'}}</p>
                 <p>Placa: {{carro.placa}}</p>
                 <div class="input-group mb-3">
