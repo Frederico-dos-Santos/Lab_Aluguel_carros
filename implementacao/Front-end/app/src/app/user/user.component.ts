@@ -102,4 +102,17 @@ export class UserComponent implements OnInit {
     }
   }
 
+  /*cancelarContrato(id: any) {
+      try {
+        console.log(contrato.id)
+        const url = `http://localhost:8080/api/contrato/deletaContratoPeloId/${id}`;
+        this.http.delete(url).subscribe(response => {
+          console.log(response)
+          alert("Contrato cancelado com Sucesso!")
+        })
+      } catch (err: any) {
+        console.error(err, "cancelarContrato");
+      }
+    }*/
+
 }

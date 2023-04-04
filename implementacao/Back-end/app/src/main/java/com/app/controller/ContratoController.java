@@ -121,7 +121,7 @@ public class ContratoController {
 
     }
 
-    /*@GetMapping(value = "deletaContratoPeloId/{id}",
+    /*@GetMapping(value = "/deletaContratoPeloId/{id}",
     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> deletaContratoPeloId(@PathVariable Long id){
 
@@ -137,7 +137,7 @@ public class ContratoController {
 
         CONTRATO_SERVICE.deletaContrato(contrato);
 
-        return ResponseEntity.ok(contrato);
+        return ResponseEntity.ok(HttpStatus.OK);
 
     }*/
 
