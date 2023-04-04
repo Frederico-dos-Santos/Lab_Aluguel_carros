@@ -6,25 +6,28 @@
     <div class="col-3 offset-4"><a href="/funcionario" class="btn btn-primary m-2">voltar</a></div>
   </div>
   <div class="row">
-    <div class="col-4 m-2">
-    <form action="">
-      <div class="card" style="width: 18rem;">
-        <div class="card-header">
-          Contrato
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cliente: </li>
-          <li class="list-group-item"> Valor: <input type="number" placeholder="32"  #valor> </li>
-          <li class="list-group-item">Veiculo: <input type="text" placeholder="HB20" #veiculo></li>
-          <li class="list-group-item">Crédito: </li>
-          <li class="list-group-item">
-            <button class="btn btn-danger" (click)="recusar()">Recusar</button>
-            <button class="btn btn-primary m-2" (click)="editar()">Salvar</button>
-          </li>
-        </ul>
+    <div *ngFor="let contrato of contratos">
+      <div class="col-4 m-2">
+        <form action="">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              Contrato
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cliente: {{contrato?.cliente}} </li>
+              <li class="list-group-item">Cliente: {{contrato?.ativo}} </li>
+              <li class="list-group-item"> Valor: <input type="number" placeholder={{contrato?.valor}} #valor> </li>
+              <li class="list-group-item">Veiculo: {{contrato?.veiculo}}</li>
+              <li class="list-group-item">Crédito: {{contrato?.contratoCredito }}</li>
+              <li class="list-group-item">
+                <button class="btn btn-danger" (click)="recusar(contrato?.id)">Recusar</button>
+                <button class="btn btn-primary m-2" (click)="editar(contrato?.id)">Salvar</button>
+              </li>
+            </ul>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
+    </div>
 
   </div>
 </div>
