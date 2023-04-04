@@ -7,5 +7,7 @@ import com.app.model.Contrato;
 
 @Repository
 public interface ContratoRepository extends JpaRepository<Contrato, Long>{
-    
+
+    Contrato findContratoById(Long id);
+
 }

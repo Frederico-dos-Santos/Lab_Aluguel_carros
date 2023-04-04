@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import com.app.model.Contrato;
 import com.app.repository.ContratoRepository;
 
+import java.util.List;
+
 @Service
 public class ContratoService {
     
@@ -14,8 +16,29 @@ public class ContratoService {
         this.CONTRATO_REPOSITORY = contratoRepository;
     }
 
-    public void insereCliente(Contrato contrato){
-        CONTRATO_REPOSITORY.save(null);
+    public void insereContrato(Contrato contrato){
+        CONTRATO_REPOSITORY.save(contrato);
     }
+
+    public List<Contrato> retornaTodosContratos(){
+        return CONTRATO_REPOSITORY.findAll();
+    }
+
+    public boolean contratoExiste(Contrato contrato){
+
+        Contrato contratoProcurar = CONTRATO_REPOSITORY.findContratoById(contrato.getId());
+
+        return contratoProcurar == null;
+
+    }
+
+    public void deletaContrato(Contrato contrato){
+        CONTRATO_REPOSITORY.delete(contrato);
+    }
+
+    public Contrato retornaContratoPeloId(Long id){
+        return CONTRATO_REPOSITORY.findContratoById(id);
+    }
+
 
 }
