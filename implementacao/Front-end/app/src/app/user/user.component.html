@@ -47,15 +47,18 @@
 
     <div class="col-6 offset-2 contrato-info" *ngIf="contratos.length > 0">
       <ul class="list-group">
-        <h3>Seus contratos ativos:</h3>
+        <h3>Seus contratos:</h3>
         <li class="list-group-item" *ngFor="let contrato of contratos">
-            <div class="itens">
+            <div class="itens" *ngIf="contrato['ativo'] == true">
               <h5>Modelo: {{contrato["veiculo"].modelo}}</h5>
               <h5>Marca: {{contrato["veiculo"].marca}}</h5>
               <h5>Placa: {{contrato["veiculo"].placa}}</h5>
               <h5>Proprietário: {{contrato["veiculo"].proprietario}}</h5>
               <h5>Contrato de Crédito: {{contrato.contratoCredito}}</h5>
               <h5>Valor: {{contrato.valor}}</h5>
+            </div>
+            <div class="itens" *ngIf="contrato['ativo'] == false">
+              <h5>Contrato aguargando aprovação...</h5>
             </div>
         </li>
     </ul>

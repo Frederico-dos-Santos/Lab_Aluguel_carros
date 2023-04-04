@@ -48,7 +48,7 @@ export class ClienteComponent implements OnInit {
       const body = {
         "idCliente": user.id,
         "idVeiculo": carro.id,
-        "ativo": true,
+        "ativo": false,
         "valor": Number(preco.value),
         "contratoCredito": false,
       };
