@@ -6,14 +6,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    try{
+    try {
 
-    const url = 'http://localhost:8080/api/veiculo/insereVeiculo';
+      const urlPost = 'http://localhost:8080/api/veiculo/insereVeiculo';
+
+      const urlGet = 'http://localhost:8080/api/veiculo/retornaTodosVeiculos';
+
+      this.http.get<any[]>(urlGet).subscribe(response => {
+        const veiculos: any[] = response;
+        const veiculoPlaca = veiculos.map(veiculo => veiculo.placa);
+      
+
 
       const body = [{
         "ano": 2023,
@@ -57,7 +65,7 @@ export class HomeComponent implements OnInit{
         "marca": "Volkswagen",
         "modelo": "Gol",
         "propietario": "Pedro",
-        "alugado": true,
+        "alugado": false,
         "placa": "ghi-789"
       },
       {
@@ -66,7 +74,7 @@ export class HomeComponent implements OnInit{
         "marca": "Chevrolet",
         "modelo": "Onix",
         "propietario": "Ana",
-        "alugado": true,
+        "alugado": false,
         "placa": "jkl-012"
       },
       {
@@ -80,17 +88,22 @@ export class HomeComponent implements OnInit{
       }]
 
 
-    body.forEach(veiculo => {
-      this.http.post(url, veiculo).subscribe(response => {
-        console.log('res', response)
-      }, error => {
-        console.log('Erro: ', error);
-      });
-    });
-  } catch (err: any) {
-    console.error(err, "contratar");
+      body.forEach(veiculo => {
+        const index = veiculoPlaca.findIndex(placa => placa === veiculo.placa);
+        if (index === -1) {
+          this.http.post(urlPost, veiculo).subscribe(response => {
+            console.log('res', response)
+          }, error => {
+            console.log('Erro: ', error);
+          }
+          )
+        }
+      })})
+
+    } catch (err: any) {
+      console.error(err, "contratar");
+    }
   }
-}
-  
+
 
 }

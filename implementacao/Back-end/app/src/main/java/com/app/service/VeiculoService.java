@@ -32,4 +32,8 @@ public class VeiculoService {
     public List<Veiculo> retornaTodosVeiculos(){
         return VEICULO_REPOSITORY.findAll();
     }
+
+    public void alteraCarro(Veiculo veiculo){
+        VEICULO_REPOSITORY.save(veiculo);
+    }
 }

@@ -47,4 +47,17 @@ public class VeiculoController {
 
     }
 
+    @PutMapping(value = "/alteraVeiculo")
+    public ResponseEntity<?> alteraVeiculo(@RequestBody Veiculo veiculo){
+
+        if(veiculo == null){
+            return ResponseEntity.badRequest().body(HttpStatus.NO_CONTENT);
+        }
+
+        VEICULO_SERVICE.alteraCarro(veiculo);
+        
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+    
+
 }

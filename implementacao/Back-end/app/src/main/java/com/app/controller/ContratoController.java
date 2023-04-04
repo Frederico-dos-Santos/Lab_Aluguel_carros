@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/contrato/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ContratoController {
     
     private final ContratoService CONTRATO_SERVICE;

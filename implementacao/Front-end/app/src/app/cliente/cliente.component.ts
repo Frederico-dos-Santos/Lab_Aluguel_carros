@@ -19,8 +19,6 @@ export class ClienteComponent implements OnInit {
 
   carros: any[] = [];
 
-  contratando = false;
-
   visualizaCarros(): void {
     try {
       const url = 'http://localhost:8080/api/veiculo/retornaTodosVeiculos';
@@ -28,31 +26,59 @@ export class ClienteComponent implements OnInit {
       this.http.get(url).subscribe(response => {
         console.log(response);
         this.carros = response as any;
+        this.carros = this.carros.filter(carro => carro.alugado == false);
       }, error => {
         console.log('Erro: ', error);
       });
+
     } catch (err: any) {
       console.error(err, "visualizaCarros");
     }
   }
 
-  contratar(carro: any): void {
+  contratar(carro: any, preco: any): void {
 
     try {
-      const preco = this.preco.nativeElement.value;
 
-      const url = 'http://localhost:8080/api/cliente/contratarVeiculo';
+      const url = 'http://localhost:8080/api/contrato/criaContrato';
+
+      const user = JSON.parse(localStorage.getItem('user') as any);      
+      console.log(user.id)
 
       const body = {
-        "placa": carro.idVeiculo,
-        "preco": preco
+        "idCliente": user.id,
+        "idVeiculo": carro.id,
+        "ativo": true,
+        "valor": Number(preco.value),
+        "contratoCredito": false,
       };
 
-      this.contratando = true;
+      console.log(body)
+
+      console.log(preco.value)
 
       this.http.post(url, body).subscribe(response => {
         console.log('res', response)
-        this.router.navigate(['/perfil']);
+        this.router.navigate(['/user']);
+      }, error => {
+        console.log('Erro: ', error);
+      });
+
+      const urlPut = 'http://localhost:8080/api/veiculo/alteraVeiculo';
+
+      const veiculo = {
+        "id": carro.id,
+        "ano": carro.ano,
+        "matricula": carro.matricula,
+        "marca": carro.marca,
+        "modelo": carro.modelo,
+        "propietario": carro.propietario,
+        "alugado": true,
+        "placa": carro.placa
+      }
+
+      this.http.put(urlPut, veiculo).subscribe(response => {
+        console.log('res', response)
       }, error => {
         console.log('Erro: ', error);
       });

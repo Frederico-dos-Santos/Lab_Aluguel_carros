@@ -45,24 +45,22 @@
       </div>
     </div>
 
-    <div class="col-6 offset-2 contrato-info" *ngIf="contratos.length > 1">
+    <div class="col-6 offset-2 contrato-info" *ngIf="contratos.length > 0">
       <ul class="list-group">
+        <h3>Seus contratos ativos:</h3>
         <li class="list-group-item" *ngFor="let contrato of contratos">
-            <div class="d-flex justify-content-between">
-              <p>Seus contratos ativos:</p>
-              <h5>Modelo: {{contrato[4].veiculo.modelo}}</h5>
-              <p>Marca: {{contrato[4].veiculo.marca}}</p>
-              <p>Placa: {{contrato[4].veiculo.placa}}</p>
-              <p>Proprietário: {{contrato[4].veiculo.proprietario}}</p>
-              <p>Contrato de Crédito: {{contrato.contratoCredito}}</p>
-              <p>Valor: {{contrato.valor}}</p>
+            <div class="itens">
+              <h5>Modelo: {{contrato["veiculo"].modelo}}</h5>
+              <h5>Marca: {{contrato["veiculo"].marca}}</h5>
+              <h5>Placa: {{contrato["veiculo"].placa}}</h5>
+              <h5>Proprietário: {{contrato["veiculo"].proprietario}}</h5>
+              <h5>Contrato de Crédito: {{contrato.contratoCredito}}</h5>
+              <h5>Valor: {{contrato.valor}}</h5>
             </div>
         </li>
     </ul>
-    </div>
-    <div class="col-6 offset-2">
-      <a type="button" class="btn btn-primary" href="/veiculos">Contratar</a>
-    </div>
+      <a type="button" class="btn btn-primary" href="/veiculos">Contratar mais</a>
+  </div>
 
     <div class="col-6 offset-2" *ngIf="contratos.length == 0">
       <h2>Não contratos em andamentos</h2>

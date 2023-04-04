@@ -8,12 +8,11 @@
                 <p>Ano: {{carro.ano | date:'yyyy'}}</p>
                 <p>Placa: {{carro.placa}}</p>
                 <div class="input-group mb-3">
-                    <input class="form-control" type="number" name="preco" placeholder="Digite um preço" required
+                    <input class="form-control" type="number" name="preco" placeholder="Digite um preço"
                         #preco>
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button"
-                        (click)="contratar(carro)" [disabled]="contratando">
-                        {{ contratando ? 'Em análise' : 'Contratar' }}</button>
+                        (click)="contratar(carro, preco)">Contratar</button>
                     </div>
                 </div>
             </div>

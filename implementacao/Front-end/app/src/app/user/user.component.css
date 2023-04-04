@@ -18,11 +18,18 @@ input {
   margin-bottom: 10px;
   padding: 15px;
   border-radius: 5px;
+  display: flex;
 }
 
 .list-group-item h5 {
   font-size: 1.2em;
   margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: white;
 }
 
 .list-group-item p {

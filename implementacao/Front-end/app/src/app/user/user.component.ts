@@ -31,10 +31,6 @@ export class UserComponent implements OnInit {
     this.carregaContrato();
   }
 
-
-
-
-
   editar() {
     try {
       let nome = this.nome.nativeElement.value;
@@ -86,12 +82,18 @@ export class UserComponent implements OnInit {
 
   carregaContrato() {
     try {
-      const url = `${this.API_URL}/carregaContrato`;
 
-      const email = this.route.snapshot.params['email'];
+      const user = JSON.parse(localStorage.getItem('user') as any); 
+      const idCliente = Number(user.id);
 
-      this.http.get(url, email).subscribe(response => {
-        this.contratos = response as any;
+      const url = `http://localhost:8080/api/contrato/retornaTodosContratos`;
+
+      this.http.get(url).subscribe((response: any) => {
+        console.log(response)
+        if (Array.isArray(response)) {
+          this.contratos = response.filter((contrato: any) => contrato.cliente.id === idCliente);
+          console.log(this.contratos);
+        }
       }, error => {
         console.log('Erro: ', error);
       });
