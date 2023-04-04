@@ -1,11 +1,9 @@
 package com.app.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.app.dto.ContratoDTO;
 import com.app.model.Cliente;
@@ -14,6 +12,8 @@ import com.app.model.Veiculo;
 import com.app.service.ClienteService;
 import com.app.service.ContratoService;
 import com.app.service.VeiculoService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/contrato/")
@@ -63,11 +63,61 @@ public class ContratoController {
         Contrato contrato = new Contrato(contratoDTO.isAtivo(), contratoDTO.getValor(), 
         contratoDTO.isContratoCredito(), veiculo, cliente);
 
-        CONTRATO_SERVICE.insereCliente(contrato);
+        CONTRATO_SERVICE.insereContrato(contrato);
 
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
-    
+    @GetMapping(value = "retornaTodosContratos",
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> retornaTodosContratos(){
+
+        List<Contrato> contratos = CONTRATO_SERVICE.retornaTodosContratos();
+
+        if(contratos == null || contratos.isEmpty()){
+            return ResponseEntity.badRequest().body(HttpStatus.BAD_REQUEST);
+        }
+
+        return ResponseEntity.ok(contratos);
+
+
+    }
+
+    @PostMapping(value = "alteraContrato")
+    public ResponseEntity<?> alteraContrato(@RequestBody Contrato contrato){
+
+        if(contrato == null){
+            return ResponseEntity.badRequest().body(HttpStatus.NO_CONTENT);
+        }
+
+        if(!CONTRATO_SERVICE.contratoExiste(contrato)){
+            return ResponseEntity.badRequest().body(HttpStatus.BAD_REQUEST);
+        }
+
+        Contrato contratoAntigo = CONTRATO_SERVICE.retornaContratoPeloId(contrato.getId());
+
+        CONTRATO_SERVICE.deletaContrato(contratoAntigo);
+        CONTRATO_SERVICE.insereContrato(contrato);
+
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "retornaContratoPeloId/{id}",
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> retornaContratoPeloId(@PathVariable Long id){
+
+        if(id == null){
+            return ResponseEntity.badRequest().body(HttpStatus.NO_CONTENT);
+        }
+
+        Contrato contrato = CONTRATO_SERVICE.retornaContratoPeloId(id);
+
+        if(contrato == null){
+            return ResponseEntity.badRequest().body(HttpStatus.BAD_REQUEST);
+        }
+
+        return ResponseEntity.ok(contrato);
+
+    }
 
 }
